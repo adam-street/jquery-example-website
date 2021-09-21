@@ -35,7 +35,7 @@ $(document).ready(() => {
         );
 
         let imgIndex = 0;
-        function fadeImg() {
+        function updateImg() {
             $('#house-img').fadeOut(1000, () => {
                 imgIndex += 1;
                 if (imgIndex > imgList.length - 1) {
@@ -43,13 +43,14 @@ $(document).ready(() => {
                 }
 
                 $('#house-img').attr('src', serviceUrl + imgList[imgIndex]);
+                $('#house-img').hide();
                 $('#house-img').fadeIn(1000, () => {
-                    setTimeout(fadeImg, 5000)
+                    setTimeout(updateImg, 5000)
                 })
             })
         }
 
-        setTimeout(fadeImg, 5000);
+        setTimeout(updateImg, 5000);
 
     });
 });
